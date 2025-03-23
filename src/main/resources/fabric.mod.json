@@ -1,38 +1,33 @@
 {
-  "schemaVersion": 1,
-  "id": "freedomofinsomnia",
-  "version": "${version}",
-
-  "name": "Freedom of Insomnia",
-  "description": "Allows phantom spawning per-player on servers.",
-  "authors": [
-    "were491 (rha1117)"
-  ],
-  "contributors": [
-    "ArkoSammy12",
-    "unilock"
-  ],
-  "contact": {
-    "homepage": "https://github.com/were491",
-    "sources": "https://github.com/were491/freedom-of-insomnia"
-  },
-
-  "license": "LGPL-3.0-only",
-  "icon": "assets/freedomofinsomnia/icon.png",
-
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "com.rha1117.freedomofinsomnia.FreedomOfInsomnia"
-    ]
-  },
-  "mixins": [
-    "freedomofinsomnia.mixins.json"
-  ],
-
-  "depends": {
-    "fabricloader": "*",
-    "fabric-api": "*",
-    "minecraft": ">=1.20.3"
-  }
+	"schemaVersion": 1,
+	"id": "narcolepsy",
+	"version": "${version}",
+	"name": "Narcolepsy",
+	"description": "Allows phantom spawning to be configured per-player.",
+	"authors": [
+		"unilock",
+		"were491 (Freedom of Insomnia)"
+	],
+	"contributors": [
+		"ArkoSammy12"
+	],
+	"contact": {
+		"sources": "https://github.com/unilock/narcolepsy",
+		"issues": "https://github.com/unilock/narcolepsy/issues"
+	},
+	"license": "LGPL-3.0-only",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"cc.unilock.narcolepsy.Narcolepsy"
+		]
+	},
+	"mixins": [
+		"narcolepsy.mixins.json"
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": ">=1.20",
+		"fabric-api": "*"
+	}
 }

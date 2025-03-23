@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "cc.unilock.narcolepsy.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"PhantomSpawnerMixin",
+		"PhantomEntityFindTargetGoalMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

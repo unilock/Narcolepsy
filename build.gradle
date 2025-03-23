@@ -1,9 +1,9 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
-version = "${project.mod_version}+${project.minecraft_version}"
+version = "${project.mod_version}+${project.minecraft_version_base}"
 group = project.maven_group
 
 base {
@@ -18,13 +18,19 @@ repositories {
 	// for more information about repositories.
 }
 
+loom {
+	mods {
+		"narcolepsy" {
+			sourceSet sourceSets.main
+		}
+	}
+}
+
 dependencies {
-	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
@@ -49,15 +55,18 @@ java {
 }
 
 jar {
-	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}" }
+	["COPYING", "COPYING.LESSER"].each { license ->
+		from(license) {
+			rename { "${it}_${project.base.archivesName.get()}" }
+		}
 	}
 }
 
 // Configure the maven publication
 publishing {
 	publications {
-		mavenJava(MavenPublication) {
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
 			from components.java
 		}
 	}
